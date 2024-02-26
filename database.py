@@ -1,10 +1,11 @@
 from sqlalchemy import create_engine, text
 import pymysql
+import os
 
 
 
 user = 'sql6686805'
-password = 'QbB1rbbFeL'
+password = os.environ["passwd"]
 host = 'sql6.freesqldatabase.com'
 port = 3306
 database = 'sql6686805'
