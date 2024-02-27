@@ -5,7 +5,7 @@ import os
 
 
 user = 'sql6686805'
-password = os.environ["passwd"]
+password = 'QbB1rbbFeL'
 host = 'sql6.freesqldatabase.com'
 port = 3306
 database = 'sql6686805'
@@ -37,6 +37,15 @@ def load_jobs_from_db():
         for row in result.all():
             jobs.append(dict(row._mapping))
         return jobs
+
+def load_job_from_db(id):
+    with engine.connect() as conn:
+        result = conn.execute(
+            text("SELECT * FROM jobs WHERE id = :val"),
+            {"val": id}
+        )
+        row = result.fetchone()
+        return row._asdict()
 
 
 
